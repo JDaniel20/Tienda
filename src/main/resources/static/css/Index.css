@@ -1,0 +1,64 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 1 jun 2022, 10:31:21
+    Author     : ASUS
+*/
+/*
+box-sizing: define el tamaño de nuestros coontenedores, segun las medidas del border, margin, content y padding
+content-box:toma en cuenta, contenido, borde y padding para el calculo de la caja sumativa
+border-box: modifica valores de contenido, para que coincida con nuestro ancho y alto
+
+posotion es otra propiedad que nos permite desplazar o mever nuestros contenedores
+
+static 
+relative
+absolute
+fixed
+sticky
+
+*/
+
+.block {
+    background-color: purple;
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+    border: 20px solid blue;
+    box-sizing: border-box;
+}
+
+.static {
+    position: static;
+    border: 3px solid violet;
+    top: 400px;
+    left: 50px;
+}
+
+.relative{
+    position: relative;
+    border: 3px solid violet;
+    top: 400px;
+    left: 50px;
+    width: 400px;
+    height: 500px;
+}
+
+.fixed {
+    position: fixed;
+    border: 3px solid violet;
+    top: 150px;
+    left: 50px;
+}
+
+.absolute {
+    position: absolute;
+    border: 3px solid violet;
+    top: 80px;
+    left: 50px;
+    width: 200px;
+    height: 100px;
+}
