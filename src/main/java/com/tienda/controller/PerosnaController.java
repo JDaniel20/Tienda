@@ -25,32 +25,32 @@ public class PerosnaController {
     @GetMapping("/persona")
     public String index(Model model) {
         List<Persona> listaPersona = personaService.getAllPersona();
-        model.addAttribute("titulo", "Tabla Personas");
+        model.addAttribute("titulo", "Tabla Personas");  //sustituye titulo por Tabla Personas
         model.addAttribute("personas", listaPersona);
-        return "personas";
+        return "personas";  //personas es un html
     }
 
     @GetMapping("/personaN")
     public String crearPersona(Model model) {
-        List<Pais> listaPaises = paisService.listCountry();
-        model.addAttribute("persona", new Persona());
-        model.addAttribute("paises", listaPaises);
+        List<Pais> listaPaises = paisService.listCountry(); //Metodo para pasar los paises, para el dropdown
+        model.addAttribute("persona", new Persona());  //crear un objeto de tipo persona 
+        model.addAttribute("psises", listaPaises);  //Pasar la llave foranea
         return "crear";
     }
 
     @PostMapping("/save")
     public String guardarPersona(@ModelAttribute Persona persona) {
         personaService.savePersona(persona);
-        return "redirect:/persona";
+        return "redirect:/persona"; //Redirigir a otro @GetMapping
     }
 
     @GetMapping("/editPersona/{id}")
     public String editarPersona(@PathVariable("id") Long idPersona, Model model) {
         Persona persona = personaService.getPersonaById(idPersona);
         List<Pais> listaPaises = paisService.listCountry();
-        model.addAttribute("persona", persona);
-        model.addAttribute("paises", listaPaises);
-        return "crear";
+        model.addAttribute("persona", persona); 
+        model.addAttribute("paises", listaPaises); 
+        return "crear"; //crear es un html
     }
     
     @GetMapping("/delete/{id}")

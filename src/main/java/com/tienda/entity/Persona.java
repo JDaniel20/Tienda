@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Table(name = "personas")
 public class Persona implements Serializable {
 
-    @Id
+    @Id  //llave primaria
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long id;
     private String nombre;
@@ -78,7 +78,8 @@ public class Persona implements Serializable {
         this.pais = pais;
     }
 
+//Añadir la llave foranea
     @ManyToOne
-    @JoinColumn(name = "paises_id")
+    @JoinColumn(name = "paises_id") //paises_id es la llave foranea 
     private Pais pais;
 }
