@@ -38,4 +38,5 @@ public class WebConfig implements WebMvcConfigurer{
         registro.addInterceptor(localeChangeInterceptor());
     }
     
+    
 }
