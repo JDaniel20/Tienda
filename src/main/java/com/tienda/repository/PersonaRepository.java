@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PersonaRepository extends CrudRepository<Persona, Long> {  //Persona es la clase 
 
+    Persona findByNombre(String nombre);
 }
