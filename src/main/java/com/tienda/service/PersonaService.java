@@ -33,7 +33,7 @@ public class PersonaService implements IPersonaService {
     }
 
     @Override
-    public Persona findByNombre(String nombre) {
+    public Persona findByNombre(String nombre) {     //implementación 
         return personaRepository.findByNombre(nombre);
     }
 

@@ -25,7 +25,7 @@ public class Persona implements Serializable {
     private String telefono;
     private String email;
 
-    private String password;
+    private String password;   //actualizar 
     private int active;
     private String roles = "";
     private String permissions = "";
@@ -118,14 +118,14 @@ public class Persona implements Serializable {
         this.pais = pais;
     }
 
-    public List<String> getRoleList() {
+    public List<String> getRoleList() {                        //Metodos que nos permite acceder a lista de roles y permisos 
         if (this.roles.length() > 0) {
             return Arrays.asList(this.roles.split(","));
         }
         return new ArrayList<>();
     }
 
-    public List<String> getPermissionList() {
+    public List<String> getPermissionList() {                   //Metodos que nos permite acceder a lista de roles y permisos 
         if (this.permissions.length() > 0) {
             return Arrays.asList(this.permissions.split(","));
         }

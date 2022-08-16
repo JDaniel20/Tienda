@@ -5,10 +5,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.AuthenticationEntryPoint.AuthenticationSuccessHandler;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.bcypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
         
 @Configuration
 @EnableWebSecurity
@@ -53,13 +58,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http)throws Exception {
       http.authorizeRequests()
-              .antMatchers("/persona","/login")
+              .antMatchers("/personas","/login","/personasN") //Paginas a las que puede ir 
               .hasRole("ADMIN")
-              .antMatchers("/personaN","/persona","/","/login")
-              .hasAnyRole("USER","VENDEDOR","ADMIN")
+              .antMatchers("/personaN","/persona","/","/login")  //Paginas a las que no puede ir 
+              .hasAnyRole("USER","VENDEDOR","ADMIN")  //Roles
               .anyRequest().autheticated()
               .and()
               .formLogin()
-              .loginPage("/login").permitAll().defaultSuccessUrl("/persona",true);
+              .loginPage("/login").permitAll().de faultSuccessUrl("/persona",true);
     }
 }
